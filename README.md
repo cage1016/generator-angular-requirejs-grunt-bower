@@ -1,0 +1,2 @@
+generator-angular-requires-mvc
+==============================
