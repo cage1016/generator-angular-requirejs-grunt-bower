@@ -23,3 +23,16 @@ Generator.prototype.welcome = function welcome() {
         );
     }
 };
+
+Generator.prototype.createFolder = function createFolder() {
+    // create folders
+    this.mkdir('Public');
+    this.mkdir('Public/js/controllers');
+    this.mkdir('Public/js/directives');
+    this.mkdir('Public/js/filters');
+    this.mkdir('Public/js/services');
+    this.mkdir('Public/js/css/bootstrap/css');
+    this.mkdir('Public/js/css/bootstrap/fonts');
+    this.mkdir('Public/js/views/Home/partials');
+    this.mkdir('Helpers');
+};
