@@ -22,5 +22,8 @@
   "license": "The MIT License (MIT)",
   "bugs": {
     "url": "https://github.com/cage1016/generator-angular-requirejs-aspnet-mvc/issues"
+  },
+  "dependencies": {
+    "yeoman-generator": "~0.17.0"
   }
 }
