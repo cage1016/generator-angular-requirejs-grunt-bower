@@ -285,3 +285,121 @@ Generator.prototype.requireHelpers = function requireHelpers() {
     // copy ASP.NET MVC RequireHelpers.cs
     this.template('RequireHelpers.cs', 'Helpers/RequireHelpers.cs')
 };
+
+Generator.prototype.gruntfile = function gruntfile() {
+    var replaceInArray = function (str) {
+        return str.replace(/ /g, '');
+    };
+    var convert2Str = function (object) {
+        return JSON.stringify(object);
+    };
+
+    var files = [{
+        expand: true,
+        cwd: '<%= mvc.js %>/vendor/angular/',
+        src: 'angular.js',
+        dest: '<%= mvc.tmp %>/vendor'
+    }, {
+        expand: true,
+        cwd: '<%= mvc.js %>/vendor/jquery/',
+        src: 'jquery.min.js',
+        dest: '<%= mvc.tmp %>/vendor'
+    }, {
+        expand: true,
+        cwd: '<%= mvc.js %>/vendor/momentjs/min',
+        src: 'moment.min.js',
+        dest: '<%= mvc.tmp %>/vendor'
+    }, {
+        expand: true,
+        cwd: '<%= mvc.js %>/vendor/respond/src',
+        src: 'respond.js',
+        dest: '<%= mvc.tmp %>/vendor'
+    }, {
+        expand: true,
+        cwd: '<%= mvc.js %>/vendor/requirejs-domready',
+        src: 'domReady.js',
+        dest: '<%= mvc.tmp %>/vendor'
+    }, {
+        expand: true,
+        cwd: '<%= mvc.js %>/vendor/bootstrap/dist/js',
+        src: 'bootstrap.min.js',
+        dest: '<%= mvc.tmp %>/vendor'
+    }];
+
+    var gruntFileRequirejsPath = [];
+    if (this.env.options.ngAnimate) {
+        files.push({
+            expand: true,
+            cwd: '<%= mvc.js %>/vendor/angular-animate/',
+            src: 'angular-animate.js',
+            dest: '<%= mvc.tmp %>/vendor'
+        });
+        gruntFileRequirejsPath.push("'angular.animate': '../<%= mvc.tmp %>/vendor/angular-animate'");
+    }
+    if (this.env.options.ngCookies) {
+        files.push({
+            expand: true,
+            cwd: '<%= mvc.js %>/vendor/angular-cookies/',
+            src: 'angular-cookies.js',
+            dest: '<%= mvc.tmp %>/vendor'
+        });
+        gruntFileRequirejsPath.push("'angular.cookies': '../<%= mvc.tmp %>/vendor/angular-cookies'");
+    }
+    if (this.env.options.ngResource) {
+        files.push({
+            expand: true,
+            cwd: '<%= mvc.js %>/vendor/angular-resource/',
+            src: 'angular-resource.js',
+            dest: '<%= mvc.tmp %>/vendor'
+        });
+        gruntFileRequirejsPath.push("'angular.resource': '../<%= mvc.tmp %>/vendor/angular-resource'");
+    }
+    if (this.env.options.ngRoute) {
+        files.push({
+            expand: true,
+            cwd: '<%= mvc.js %>/vendor/angular-route/',
+            src: 'angular-route.js',
+            dest: '<%= mvc.tmp %>/vendor'
+        });
+        gruntFileRequirejsPath.push("'angular.route': '../<%= mvc.tmp %>/vendor/angular-route'");
+    }
+    if (this.env.options.ngSanitize) {
+        files.push({
+            expand: true,
+            cwd: '<%= mvc.js %>/vendor/angular-sanitize/',
+            src: 'angular-sanitize.js',
+            dest: '<%= mvc.tmp %>/vendor'
+        });
+        gruntFileRequirejsPath.push("'angular.sanitize': '../<%= mvc.tmp %>/vendor/angular-sanitize'");
+    }
+    if (this.env.options.ngTouch) {
+        files.push({
+            expand: true,
+            cwd: '<%= mvc.js %>/vendor/angular-touch/',
+            src: 'angular-touch.js',
+            dest: '<%= mvc.tmp %>/vendor'
+        });
+        gruntFileRequirejsPath.push("'angular-touch': '../<%= mvc.tmp %>/vendor/angular-touch'");
+    }
+    if (this.env.options.uiBootstrap) {
+        files.push({
+            expand: true,
+            cwd: '<%= mvc.js %>/vendor/bootstrap/dist/js',
+            src: 'bootstrap.min.js',
+            dest: '<%= mvc.tmp %>/vendor'
+        });
+        files.push({
+            expand: true,
+            cwd: '<%= mvc.js %>/vendor/angular-ui-bootstrap-bower',
+            src: ['ui-bootstrap.min.js', 'ui-bootstrap-tpls.min.js'],
+            dest: '<%= mvc.tmp %>/vendor'
+        });
+        gruntFileRequirejsPath.push("'uiBootstrap': '../<%= mvc.tmp %>/vendor/ui-bootstrap.min'");
+        gruntFileRequirejsPath.push("'uiBootstrapTpl': '../<%= mvc.tmp %>/vendor/ui-bootstrap-tpls.min'");
+    }
+
+    this.files = files.map(convert2Str).map(replaceInArray);
+    this.gruntFileRequirejsPath = gruntFileRequirejsPath.map(replaceInArray).join(',\n                        ');
+
+    this.template('Gruntfile.js', 'Public/Gruntfile.js');
+};
