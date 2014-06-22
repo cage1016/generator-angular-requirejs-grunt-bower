@@ -1,0 +1,24 @@
+{
+  "curly": true,
+  "eqnull": true,
+  "eqeqeq": true,
+  "undef": true,
+  "newcap":false,
+  "globals"   : {
+    /* MOCHA */
+	"define"   : true,
+	"angular"   : true,
+    "describe"   : false,
+    "it"         : false,
+    "before"     : false,
+    "beforeEach" : false,
+    "after"      : false,
+    "afterEach"  : false,
+	"console": true,
+	"moment":true,
+	"document":true,
+	"require":true,
+	"$":true,
+	"jQuery":true
+  }
+}
