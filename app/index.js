@@ -36,3 +36,39 @@ Generator.prototype.createFolder = function createFolder() {
     this.mkdir('Public/js/views/Home/partials');
     this.mkdir('Helpers');
 };
+
+Generator.prototype.askForVirtualDirectory = function askForVirtualDirectory() {
+    var cb = this.async();
+
+    var prompts = [{
+        name: 'hasVirtualDirectory',
+        message: 'Do your ASP.NET MVC Appliation run in virtualDirectory? (http://localhost/ApplicationName)',
+        default: true
+    }];
+
+    this.prompt(prompts, function (props) {
+        this.env.options.hasVirtualDirectory = props.hasVirtualDirectory;
+
+        cb();
+    }.bind(this));
+}
+
+Generator.prototype.askApplicationName = function askApplicationName() {
+    var cb = this.async();
+    var prompts;
+    if (this.env.options.hasVirtualDirectory === true) {
+        prompts = [{
+            name: 'applicationName',
+            message: 'What would you like to call Appliation name? (http://localhost/ApplicationName)',
+            default: 'ApplicationName'
+        }];
+    } else {
+        prompts = [];
+    }
+
+    this.prompt(prompts, function (props) {
+        this.env.options.applicationName = props.applicationName;
+
+        cb();
+    }.bind(this));
+};
