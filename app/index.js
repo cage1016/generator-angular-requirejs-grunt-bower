@@ -275,3 +275,8 @@ Generator.prototype.angularMods = function angularMods() {
     this.template('app.js', 'Public/js/app.js');
     this.template('config.js', 'Public/js/config.js');
 };
+
+Generator.prototype.setBower = function setBower() {
+    this.copy('bowerrc', 'Public/.bowerrc');
+    this.template('_bower.json', 'Public/bower.json');
+};

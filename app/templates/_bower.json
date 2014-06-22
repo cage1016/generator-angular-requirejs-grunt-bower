@@ -1,0 +1,17 @@
+{
+    "name": "<%= ngapp %>",
+    "version": "0.0.1",
+    "dependencies": {},
+    "devDependencies": {
+        "angular": "~1.2.16",
+        "requirejs-domready": "~2.0.1",
+        "respond": "~1.4.2",
+        "jquery": "1.10.2",
+        "bootstrap": "~3.1.1",
+        "momentjs": "~2.5.1",
+        <%= bowerDevDependencies %>
+    },
+    "resolutions": {
+        "angular": "~1.2.16"
+    }
+}
