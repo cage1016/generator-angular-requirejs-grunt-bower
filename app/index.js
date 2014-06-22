@@ -411,3 +411,17 @@ Generator.prototype.packageJSON = function packageJSON() {
 Generator.prototype.jshint = function jshint() {
     this.copy('jshintrc', 'Public/.jshintrc');
 };
+
+Generator.prototype.assets = function assets() {
+    this.template('css/bootstrap/css/bootstrap.min.css', 'Public/js/css/bootstrap/css/bootstrap.min.css');
+    this.template('css/bootstrap/css/bootstrap.css', 'Public/js/css/bootstrap/css/bootstrap.css');
+    this.template('css/bootstrap/fonts/glyphicons-halflings-regular.eot', 'Public/js/css/bootstrap/fonts/glyphicons-halflings-regular.eot');
+    this.template('css/bootstrap/fonts/glyphicons-halflings-regular.svg', 'Public/js/css/bootstrap/fonts/glyphicons-halflings-regular.svg');
+    this.template('css/bootstrap/fonts/glyphicons-halflings-regular.ttf', 'Public/js/css/bootstrap/fonts/glyphicons-halflings-regular.ttf');
+    this.template('css/bootstrap/fonts/glyphicons-halflings-regular.woff', 'Public/js/css/bootstrap/fonts/glyphicons-halflings-regular.woff');
+};
+
+Generator.prototype.views = function views() {
+    this.copy('views/Home/partials/home-index.html', 'Public/js/views/Home/partials/home-index.html');
+    this.template('views/Home/index.js', 'Public/js/views/Home/index.js');
+};
