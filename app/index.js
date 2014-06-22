@@ -403,3 +403,11 @@ Generator.prototype.gruntfile = function gruntfile() {
 
     this.template('Gruntfile.js', 'Public/Gruntfile.js');
 };
+
+Generator.prototype.packageJSON = function packageJSON() {
+    this.template('_package.json', 'Public/package.json');
+};
+
+Generator.prototype.jshint = function jshint() {
+    this.copy('jshintrc', 'Public/.jshintrc');
+};
