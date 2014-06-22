@@ -8,6 +8,31 @@ var chalk = require('chalk');
 var Generator = module.exports = function Generator(args, options, config) {
     yeoman.generators.Base.apply(this, arguments);
 
+    //
+    this.on('end', function () {
+        console.log(chalk.yellow.bold('\n Public grunt bower-install'));
+        // Change working directory to 'Public' for dependency install
+        var npmdir = process.cwd() + '/Public';
+        process.chdir(npmdir);
+
+        this.installDependencies({
+            skipInstall: options['skip-install'],
+            skipMessage: this.options['skip-install-message'],
+            bower: true,
+            npm: true,
+            callback: function () {
+                // Emit a new event - dependencies installed
+                this.emit('dependenciesInstalled');
+            }.bind(this)
+        });
+    });
+
+    // Now you can bind to the dependencies installed event
+    this.on('dependenciesInstalled', function () {
+        console.log(chalk.yellow.bold('\n  Public grunt build'));
+        this.spawnCommand('grunt', ['build']);
+    });
+
     // set source root path to templates
     this.sourceRoot(path.join(__dirname, 'templates'));
 };
