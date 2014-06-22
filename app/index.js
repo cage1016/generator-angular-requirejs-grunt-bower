@@ -280,3 +280,8 @@ Generator.prototype.setBower = function setBower() {
     this.copy('bowerrc', 'Public/.bowerrc');
     this.template('_bower.json', 'Public/bower.json');
 };
+
+Generator.prototype.requireHelpers = function requireHelpers() {
+    // copy ASP.NET MVC RequireHelpers.cs
+    this.template('RequireHelpers.cs', 'Helpers/RequireHelpers.cs')
+};
