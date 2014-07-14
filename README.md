@@ -9,7 +9,7 @@ There are few articles i explained how to do it and why:
 
 1.  [AngularJs, RequireJs, Grunt and Bower Part1 - Getting Started and concept with ASP.NET MVC](http://bamboobig.blogspot.tw/2014/06/angularjs-requirejs-grunt-and-bower.html)
 2.  [AngularJs, RequireJs, Grunt and Bower Part2 - Grunt](http://bamboobig.blogspot.tw/2014/07/angularjs-requirejs-grunt-and-bower.html)
-3.  AngularJs, RequireJs, Grunt and Bower Part3 - generator-angular-requirejs-grunt-bower with ASP.NET MVC
+3.  [AngularJs, RequireJs, Grunt and Bower Part3 - generator-angular-requirejs-grunt-bower with ASP.NET MVC](http://bamboobig.blogspot.tw/2014/07/angularjs-requirejs-grunt-and-bower_14.html)
 4.  [AngularJs, RequireJs, Grunt and Bower Part4 - How to extend your own code with ASP.NET MVC **//to be done**]()
 5.  [AngularJs, RequireJs, Grunt and Bower Part5 - generator-angular-requirejs-grunt-bower with Express.js **//to be done**]()
 
