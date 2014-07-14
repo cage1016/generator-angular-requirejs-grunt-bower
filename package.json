@@ -1,14 +1,14 @@
 {
-  "name": "generator-angular-requirejs-aspnet-mvc",
-  "version": "0.0.1",
-  "description": "AngularJs + Requirejs + Grunt + Bower for ASP.NET MVC project.",
+  "name": "generator-angular-requirejs-grunt-bower",
+  "version": "0.0.2",
+  "description": "Integrate AngularJs, Requirejs, Grunt and Bower with your project.",
   "main": "app/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cage1016/generator-angular-requirejs-aspnet-mvc.git"
+    "url": "https://github.com/cage1016/generator-angular-requirejs-grunt-bower.git"
   },
   "keywords": [
     "yeoman-generator",
@@ -19,12 +19,12 @@
     "aspnet.mvc"
   ],
   "author": "KAI CHU CHUNG",
-  "license": "The MIT License (MIT)",
+  "license": "BSD license",
   "bugs": {
-    "url": "https://github.com/cage1016/generator-angular-requirejs-aspnet-mvc/issues"
+    "url": "https://github.com/cage1016/generator-angular-requirejs-grunt-bower/issues"
   },
   "dependencies": {
-    "yeoman-generator": "~0.17.0",
+    "yeoman-generator": "~0.17.1",
     "chalk": "~0.4.0"
   }
 }
