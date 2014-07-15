@@ -25,7 +25,7 @@ There are few articles i explained how to do it and why:
 
 Available generator
 
-- [angular-requirejs-grunt-bower](/#app)
+- [angular-requirejs-grunt-bower](https://github.com/cage1016/generator-angular-requirejs-grunt-bower/tree/master/app)
 
 ### App
 
